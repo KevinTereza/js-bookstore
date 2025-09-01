@@ -11,17 +11,17 @@ export class Database {
         return this.#storage[key] // Retorna um array com informaçãos salvas no armazenamento (books, posters e etc)
     }
 
-    saveAuthor(author) {
-        const authorExists = this.#storage.authors.find(a => a.name === author.name) // Verifica se o autor já existe no armazenamento
-        if (!authorExists) this.#storage.authors.push(author) // Se não existe, "Pusha" esse autor no array de authors em armazenamento
-    }
-
     findBookByName(bookName) {
         return this.#storage.books.find(b => b.name === bookName) // Cria um método para verificar se um livro já existe
     }
 
     findPosterByName(posterName) {
         return this.#storage.posters.find(p => p.name === posterName) // Cria um método só para verificar se um livro já existe
+    }
+
+    saveAuthor(author) {
+        const authorExists = this.#storage.authors.find(a => a.name === author.name) // Verifica se o autor já existe no armazenamento
+        if (!authorExists) this.#storage.authors.push(author) // Se não existe, "Pusha" esse autor no array de authors em armazenamento
     }
 
     saveBook(book) {
